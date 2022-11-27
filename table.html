@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="mytable">
+        <tbody>
+            <tr>
+                <td>3</td><td>4</td>
+            </tr>
+            <tr>
+                <td>2</td><td>7</td>
+            </tr>
+            <tr>
+                <td>1</td><td>8</td>
+            </tr>
+        </tbody>
+        <button id="sorting">SortYour table</button>
+    </table>
+
+    <script>
+        
+           
+           
+
+           
+    
+            function myFunction(){
+
+                 var table = document.getElementById("mytable")
+                 console.log(table)
+
+                // var select - *<< poption value - ""hidden > SELECT</option >;
+                for (var i = 0; i < table.rows.length; i++) {
+                    let row = table.rows[i].cells[0].innerText;
+                    // select += "<option>" + table.rowss[i].cells[0].innerText + "</option>";
+                    // document.getElementById("select").innerHTML - select;
+                    console.log(row)
+
+            }
+            }
+
+            myFunction()
+                
+
+        
+    </script>
+</body>
+</html>

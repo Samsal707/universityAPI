@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+        }
+        td, th {
+            border: 1px solid rgb(164, 146, 146);
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgb(91, 75, 78);
+        }
+
+        tr:hover {
+            background-color: rgb(183, 185, 58);
+        }
+    </style>
+</head>
+<body>
+    <p>Austraian Universities</p>
+    <h1>Click the button to load the universities.</h1>
+
+  
+    <button id="ldunis">UniLoad</button>
+  
+   
+  
+    <button id="sorter">Sort</button>
+  
+
+    
+    
+    <table id="unitable"> 
+        <caption> this a table of Australian universities</caption>
+        <thead>
+            <tr>
+                <th>Unviersity Name</th>
+                <th>University URL</th>
+            </tr>
+        </thead>
+        <tbody id="mytable">
+           
+        </tbody>
+    </table>
+    <div id="map"></div>
+    <script defer>
+            // window.addEventListener('load', registerEvents, false);
+
+            var btn1 = document.getElementById('ldunis');
+          
+            
+            // var btn2 = document.getElementById('sorter')
+            
+        
+            const api_url = `http://universities.hipolabs.com/search?country=Australia`;
+
+         async function getData(){
+                const response = await fetch(api_url);
+                const uniData = await response.json();
+                console.log(uniData);
+               
+                for (let i = 0; i <= (uniData.length - 1); i++){
+                   document.getElementById('unitable').innerHTML += `<tr><td id ='${uniData[i].name}' onclick='clickHandler()'>${uniData[i].name}</td><td>${uniData[i].web_pages}</td><tr>`;
+
+                };
+
+                
+
+            
+                
+                
+                
+
+                
+            } 
+        
+            
+            btn1.addEventListener('click', getData);
+
+        
+            //Below I am tryin to implement a process whereby if you click on the table data the text content is assigned to a variable which you can do something with it. I am hopping to append the name of the university to a search in a second api call (goople maps ) and then display the location of that university on a map.
+            
+        // function clickHandler(){
+
+        //     var table = document.getElementById("unitable");
+        //     var iD = document.getElementsByTagName('td')
+        //     if(iD.event !== onclick){
+        //         return
+        //     }
+        //     else{
+        //         let university = table.target.textContent;
+                
+        //     }
+
+        //     console.log(university)
+        // }
+        
+        //I would also like to implement a way of sorting tables rows - tried some of the methods in MDZ thought without sucess in my own code. 
+                    
+                    
+                    
+                    
+                    
+
+
+            
+            
+
+
+
+
+
+        
+          
+                        
+    </script>
+    
+</body>
+</html>
